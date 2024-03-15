@@ -594,3 +594,4 @@ C:\Users\HP 21\source\repos\TiendaOnline\obj\Debug\net6.0\refint\TiendaOnline.dl
 C:\Users\HP 21\source\repos\TiendaOnline\obj\Debug\net6.0\TiendaOnline.pdb
 C:\Users\HP 21\source\repos\TiendaOnline\obj\Debug\net6.0\TiendaOnline.genruntimeconfig.cache
 C:\Users\HP 21\source\repos\TiendaOnline\obj\Debug\net6.0\ref\TiendaOnline.dll
+C:\Users\HP 21\source\repos\TiendaOnline\obj\Debug\net6.0\TiendaOnline.sourcelink.json
