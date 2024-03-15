@@ -1,0 +1,36 @@
+@model IEnumerable<TiendaOnline.Models.Banner>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de banner</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear banner</a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card card border">
+                <img src="@item.ImageUrl" class="card-img-top" alt="Banner Image">
+                <div class="card-body">
+                    <div>
+                        <strong>
+                            @Html.DisplayFor(modelItem => item.ImageUrl)
+                        </strong>
+                    </div>
+                    <div class="d-flex">
+                        <div class="mt-4">
+                            <a asp-action="Edit" asp-route-id="@item.BannerId" class="btn btn-primary">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.BannerId" class="btn btn-secondary">Detalle</a>
+                            <a asp-action="Delete" asp-route-id="@item.BannerId" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+@model IEnumerable<TiendaOnline.Models.Rol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Lista de Roles</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.RolId">Edit</a> 
+                                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.RolId">Details</a> 
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RolId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

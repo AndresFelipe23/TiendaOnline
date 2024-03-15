@@ -1,0 +1,58 @@
+@model IEnumerable<TiendaOnline.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Lista de Usuarios</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                        <th>@Html.DisplayNameFor(model => model.NombreUsuario)</th>
+                        <th>@Html.DisplayNameFor(model => model.Contrasenia)</th>
+                        <th>@Html.DisplayNameFor(model => model.Correo)</th>
+                        <th>@Html.DisplayNameFor(model => model.Direccion)</th>
+                        <th>@Html.DisplayNameFor(model => model.Ciudad)</th>
+                        <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                        <th>@Html.DisplayNameFor(model => model.CodigoPostal)</th>
+                        <th>@Html.DisplayNameFor(model => model.Rol)</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NombreUsuario)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Contrasenia)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Correo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Direccion)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Ciudad)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CodigoPostal)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Rol.Nombre)</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.UsuarioId"><i class="bx bx-edit-alt me-2"></i>Editar</a>
+                                        <a class="dropdown-item" asp-action="Details" asp-route-id="@item.UsuarioId"><i class="bx bx-detail me-2"></i>Detalle</a>
+                                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.UsuarioId"><i class="bx bx-trash me-2"></i>Eliminar</a>
+                                    </div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

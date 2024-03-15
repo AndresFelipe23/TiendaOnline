@@ -1,0 +1,48 @@
+@model TiendaOnline.Models.Detalle_Pedido
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Eliminar</h1>
+        <h3>¿Estás seguro de que quieres eliminar esto?</h3>
+        <div>
+            <h4>Detalle del pedido</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Pedido)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Pedido.Estado)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Producto)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Producto.Codigo)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Cantidad)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Precio)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Precio)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="DetallePedidoId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                <a class="btn btn-dark" asp-action="Index">Volver al Listado</a>
+            </form>
+        </div>
+    </div>
+</div>

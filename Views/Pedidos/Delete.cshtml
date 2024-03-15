@@ -1,0 +1,54 @@
+@model TiendaOnline.Models.Pedido
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <h5 class="card-header">Eliminar</h5>
+    <div class="card-body">
+        <h4 class="card-title">¿Estás seguro de que quieres eliminar esto?</h4>
+        <div>
+            <h4>Pedido</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Usuario)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Usuario.Ciudad)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Fecha)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DireccionIdSeleccionada)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DireccionIdSeleccionada)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Total)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Total)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="PedidoId" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> 
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

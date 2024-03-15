@@ -1,0 +1,44 @@
+@model TiendaOnline.Models.Usuario
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <h5 class="card-title">Eliminar Usuario</h5>
+        <div>
+            <h6>Usuario</h6>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Nombre:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombre)</dd>
+                <dt class="col-sm-4">Teléfono:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Telefono)</dd>
+                <dt class="col-sm-4">Nombre de Usuario:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.NombreUsuario)</dd>
+                <dt class="col-sm-4">Contraseña:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Contrasenia)</dd>
+                <dt class="col-sm-4">Correo:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Correo)</dd>
+                <dt class="col-sm-4">Dirección:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Direccion)</dd>
+                <dt class="col-sm-4">Ciudad:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Ciudad)</dd>
+                <dt class="col-sm-4">Estado:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Estado)</dd>
+                <dt class="col-sm-4">Código Postal:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.CodigoPostal)</dd>
+                <dt class="col-sm-4">Rol:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Rol.Nombre)</dd>
+            </dl>
+        </div>
+        <div class="text-center">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="UsuarioId" />
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <a asp-action="Index" class="btn btn-dark">Volver al Listado</a>
+            </form>
+        </div>
+    </div>
+</div>

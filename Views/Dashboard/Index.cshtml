@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Bienvenido al Dashboard</h1>
+    <p class="lead">Aquí encontrarás enlaces a los índices de los demás controladores:</p>
+
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Banners")" class="card-link">Banners</a>
+                    <p class="card-text">Total de Banners: @Model.TotalBanner</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Categorias")" class="card-link">Categorias</a>
+                    <p class="card-text">Total de Categorias: @Model.TotalCategorias</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "DetallesPedidos")" class="card-link">Detalles Pedidos</a>
+                    <p class="card-text">Total de detalles pedidos: @Model.TotalDetallePedido</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Direcciones")" class="card-link">Direcciones</a>
+                    <p class="card-text">Total de Direcciones: @Model.TotalDirecciones</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Pedidos")" class="card-link">Pedidos</a>
+                    <p class="card-text">Total de Pedidos: @Model.TotalPedidos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Productos")" class="card-link">Productos</a>
+                    <p class="card-text">Total de Productos: @Model.TotalProductos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Roles")" class="card-link">Roles</a>
+                    <p class="card-text">Total de Roles: @Model.TotalRoles</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card card border">
+                <div class="card-body text-center">
+                    <a href="@Url.Action("Index", "Usuarios")" class="card-link">Usuarios</a>
+                    <p class="card-text">Total de Usuarios: @Model.TotalUsuarios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+</div>

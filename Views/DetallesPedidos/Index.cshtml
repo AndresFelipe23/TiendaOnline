@@ -1,0 +1,73 @@
+@model IEnumerable<TiendaOnline.Models.Detalle_Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Lista de detalles </h1>
+
+            <p>
+                <a asp-action="Create" class="btn btn-primary">Crear</a>
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Pedido)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Producto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cantidad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Precio)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pedido.Estado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Producto.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cantidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Precio)
+                                </td>
+                                <td>
+
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.DetallePedidoId"><i class="bx bx-edit-alt me-1"></i>Editar</a>
+                                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.DetallePedidoId"><i class="bx bx-detail me-1"></i>Detalle</a>
+                                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DetallePedidoId"><i class="bx bx-trash me-1"></i>Eliminar</a>
+                                        </div>
+                                    </div>
+
+                                   @*  <a asp-action="Edit" asp-route-id="@item.DetallePedidoId" class="btn btn-sm btn-primary">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.DetallePedidoId" class="btn btn-sm btn-info">Details</a>
+                                    <a asp-action="Delete" asp-route-id="@item.DetallePedidoId" class="btn btn-sm btn-danger">Delete</a> *@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+
+<div >
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <p>Ya has iniciado sesión. Serás redirigido al inicio en uno segundos...</p>
+        <script>
+                    setTimeout(function ()
+                    {
+                        window.location.href='@Url.Action("Index", "Home")';
+                    }, 3000);
+                </script>
+    }
+    else
+    {
+        @* <form asp-action="Register" method="post">
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreUsuario" class="control-label"></label>
+                <input asp-for="NombreUsuario" class="form-control" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contrasenia" class="control-label"></label>
+                <input asp-for="Contrasenia" type="password" class="form-control" />
+                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" type="email" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ciudad" class="control-label"></label>
+                <input asp-for="Ciudad" class="form-control" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoPostal" class="control-label"></label>
+                <input asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+        </form>
+        <br />
+        <a asp-action="Login" class="btn btn-outline-primary mt-2">Iniciar sesión</a> *@
+
+
+
+            <div class="authentication-wrapper authentication-basic container-p-y">
+                <div class="authentication-inner">
+
+                    <!-- Register Card -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-2">Adventure starts here 🚀</h4>
+                            <p class="mb-4">Make your app management easy and fun!</p>
+
+                        <form asp-action="Register" method="post">
+                            <div class="form-group">
+                                <label asp-for="Nombre" class="control-label"></label>
+                                <input asp-for="Nombre" class="form-control" />
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Telefono" class="control-label"></label>
+                                <input asp-for="Telefono" class="form-control" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NombreUsuario" class="control-label"></label>
+                                <input asp-for="NombreUsuario" class="form-control" />
+                                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Contrasenia" class="control-label"></label>
+                                <input asp-for="Contrasenia" type="password" class="form-control" />
+                                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Correo" class="control-label"></label>
+                                <input asp-for="Correo" type="email" class="form-control" />
+                                <span asp-validation-for="Correo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Direccion" class="control-label"></label>
+                                <input asp-for="Direccion" class="form-control" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Ciudad" class="control-label"></label>
+                                <input asp-for="Ciudad" class="form-control" />
+                                <span asp-validation-for="Ciudad" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Estado" class="control-label"></label>
+                                <input asp-for="Estado" class="form-control" />
+                                <span asp-validation-for="Estado" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CodigoPostal" class="control-label"></label>
+                                <input asp-for="CodigoPostal" class="form-control" />
+                                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary d-grid w-100 mt-2">Registrarse</button>
+                            </div>
+                        </form>
+
+                        <a asp-action="Login" class="btn btn-outline-dark d-grid w-100 mt-2">Iniciar sesión</a>
+
+                        </div>
+                    </div>
+                    <!-- Register Card -->
+                </div>
+            </div>
+
+
+    }
+</div>

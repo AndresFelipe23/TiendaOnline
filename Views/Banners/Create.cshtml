@@ -1,0 +1,39 @@
+@model TiendaOnline.Models.Banner
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Crear</h1>
+
+            <h4 class="card-subtitle mb-4">Banner</h4>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="ImageUrl" class="control-label"></label>
+                            <input asp-for="ImageUrl" class="form-control" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="submit" value="Crear" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-dark">Volver a la lista</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

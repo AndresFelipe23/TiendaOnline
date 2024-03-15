@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TiendaOnline</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+
+    <!-- Fonts & Flag icons -->
+    <link rel="stylesheet" href="~/vendor/fonts/boxicons.css" asp-append-version="true" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/vendor/css/core.css" class="template-customizer-core-css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/vendor/css/theme-default.css" class="template-customizer-theme-css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/demo.css" />
+
+    <!-- `perfect-scrollbar` library required by SideNav plugin -->
+    <link rel="stylesheet" href="~/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true" />
+
+    <!-- Pages CSS -->
+    <link rel="stylesheet" href="~/vendor/css/pages/page-auth.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <script src="https://kit.fontawesome.com/4b5aae3091.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-white">
+
+    @await Html.PartialAsync("_Header")
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   @*  <footer class="footer mt-auto border-top bg-light text-center text-muted py-3">
+        <div class="container">
+            &copy; 2023 - TiendaOnline - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-muted">Privacy</a>
+        </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/breadcrumb.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

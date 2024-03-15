@@ -1,0 +1,34 @@
+@model TiendaOnline.Models.Banner
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Eliminar</h1>
+
+            <h3>¿Estás seguro de que quieres eliminar esto?</h3>
+
+            <div>
+                <h4 class="card-subtitle mb-4">Banner</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ImageUrl)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ImageUrl)
+                    </dd>
+                </dl>
+            </div>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="BannerId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+                <a asp-action="Index" class="btn btn-dark">Volver a la lista</a>
+            </form>
+        </div>
+    </div>
+</div>

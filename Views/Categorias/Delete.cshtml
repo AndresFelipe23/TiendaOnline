@@ -1,0 +1,44 @@
+@model TiendaOnline.Models.Categoria
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Eliminar</h1>
+
+            <h3>¿Estás seguro de que quieres eliminar esto?</h3>
+
+            <div>
+                <h4>Categoria</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="CategoriaId" />
+                        <input type="submit" value="Delete" class="btn btn-danger" /> 
+                        <a asp-action="Index" class="btn btn-dark">Volver a la lista</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

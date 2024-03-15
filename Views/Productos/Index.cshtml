@@ -1,0 +1,115 @@
+
+@model IEnumerable<TiendaOnline.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de productos</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
+</p>
+
+<form asp-action="Index" asp-controller="Productos" method="get" class="mb-3" id="search-form">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por código o nombre" aria-label="Buscar por código o nombre" aria-describedby="button-search">
+        <button class="btn btn-primary" type="submit" id="button-search">Buscar</button>
+        <button class="btn btn-secondary" type="button" id="button-reset">Reset</button>
+    </div>
+</form>
+
+<div class="card card border">
+    <div class="table-responsive-lg">
+        <table class="table card-table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Codigo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </th>
+                    <th>
+                        Imagen
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Categoria)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Stock)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Marca)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Activo)
+                    </th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Codigo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Precio)
+                        </td>
+                        <td>
+                            <img src="@item.Imagen" alt="Imagen del producto" class="img-thumbnail" style="max-width: 100px;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stock)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Marca)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Activo)
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductoId"><i class="bx bx-edit-alt me-2"></i>Editar</a>
+                                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.ProductoId"><i class="bx bx-trash me-2"></i>Eliminar</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('button-reset').addEventListener('click', function () {
+        window.location.href = window.location.pathname;
+    });
+</script>

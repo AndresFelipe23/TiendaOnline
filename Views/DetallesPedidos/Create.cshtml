@@ -1,0 +1,55 @@
+@model TiendaOnline.Models.Detalle_Pedido
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Crear</h1>
+
+            <h4>Detalle Pedido</h4>
+            <hr />
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label for="PedidoId" class="form-label">Pedido</label>
+                    <select asp-for="PedidoId" class="form-control" asp-items="ViewBag.PedidoId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ProductoId" class="form-label">Producto</label>
+                    <select asp-for="ProductoId" class="form-control" asp-items="ViewBag.ProductoId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Cantidad" class="form-label">Cantidad</label>
+                    <input asp-for="Cantidad" class="form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Precio" class="form-label">Precio</label>
+                    <input asp-for="Precio" class="form-control" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

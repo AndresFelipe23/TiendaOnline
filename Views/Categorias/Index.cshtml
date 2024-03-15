@@ -1,0 +1,59 @@
+@model IEnumerable<TiendaOnline.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Categorías</h5>
+
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Crear nueva categoría</a>
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.CategoriaId"><i class="bx bx-edit-alt me-1"></i>Edit</a>
+                                        <a class="dropdown-item" asp-action="Details" asp-route-id="@item.CategoriaId"><i class="bx bx-detail me-1"></i>Edit</a>
+                                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.CategoriaId"><i class="bx bx-trash me-1"></i>Delete</a>
+                                    </div>
+                                </div>
+
+                                @* <a asp-action="Edit" asp-route-id="@item.CategoriaId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.CategoriaId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.CategoriaId">Delete</a> *@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

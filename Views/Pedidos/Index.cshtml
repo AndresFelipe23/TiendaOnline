@@ -1,0 +1,71 @@
+@model IEnumerable<TiendaOnline.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Lista de pedidos</h5>
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Usuario)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fecha)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DireccionIdSeleccionada)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Total)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Usuario.Ciudad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DireccionIdSeleccionada)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Total)
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.PedidoId"><i class="bx bx-edit-alt me-1"></i>Editar</a>
+                                        <a class="dropdown-item" asp-action="Details" asp-route-id="@item.PedidoId"><i class="bx bx-detail me-1"></i>Detalle</a>
+                                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.PedidoId"><i class="bx bx-trash me-1"></i>Eliminar</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
